@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ProjectGuid>{A0C8E4BF-7F67-4DB9-90CF-EBB468BC8047}</ProjectGuid>
+    <UseWPF>true</UseWPF>
+    <PublishTrimmed>true</PublishTrimmed>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="**\*.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms.Platform.WPF" Version="4.7.0.968" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DragAndDropSample\DragAndDropSample.csproj" />
+  </ItemGroup>
+
+</Project>

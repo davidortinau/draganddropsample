@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:pm="clr-namespace:DragAndDropSample.PageModels"
+  x:Class="DragAndDropSample.Pages.MainPage">
+
+  <ContentPage.Resources>
+    <Style
+      TargetType="Button">
+      <Setter
+        Property="WidthRequest"
+        Value="44" />
+      <Setter
+        Property="HeightRequest"
+        Value="44" />
+      <Setter
+        Property="HorizontalOptions"
+        Value="Start" />
+      <Setter
+        Property="VerticalOptions"
+        Value="Start" />
+      <Setter
+        Property="CornerRadius"
+        Value="8" />
+      <Setter
+        Property="TextColor"
+        Value="White" />
+      <Setter
+        Property="BorderWidth"
+        Value="0" />
+      <Setter
+        Property="Margin"
+        Value="0,0,8,0" />
+    </Style>
+  </ContentPage.Resources>
+
+  <ContentPage.BindingContext>
+    <pm:MainPageModel />
+  </ContentPage.BindingContext>
+
+  <Grid
+    RowDefinitions="Auto,*,44,*,44,*">
+    <Frame
+      BackgroundColor="#512BD4"
+      Padding="24"
+      CornerRadius="0">
+      <Label
+        Text="Welcome to Xamarin.Forms!"
+        HorizontalTextAlignment="Center"
+        TextColor="White"
+        FontSize="36" />
+    </Frame>
+    <StackLayout
+      Margin="15"
+      Grid.Row="1">
+      <Label
+        Text="Start developing now"
+        FontSize="Title"
+        Padding="10" />
+      <Label
+        Text="Make changes to your XAML and save it to see your UI update in your running app. Give it a try!"
+        FontSize="16"
+        Padding="10,0,10,0" />
+      <Label
+        FontSize="16"
+        Padding="10,24,10,0">
+        <Label.FormattedText>
+          <FormattedString>
+            <FormattedString.Spans>
+              <Span
+                Text="Learn more at " />
+              <Span
+                Text="https://aka.ms/xamarin-quickstart"
+                FontAttributes="Bold" />
+            </FormattedString.Spans>
+          </FormattedString>
+        </Label.FormattedText>
+      </Label>
+    </StackLayout>
+    <StackLayout
+      Grid.Row="2"
+      Margin="15,0"
+      Orientation="Horizontal">
+      <Button
+        Text="1"
+        Clicked="Button_Clicked"
+        BackgroundColor="Blue">
+        <Button.GestureRecognizers>
+          <DragGestureRecognizer
+            DragStarting="DragGestureRecognizer_DragStarting"
+            CanDrag="True" />
+        </Button.GestureRecognizers>
+      </Button>
+      <Button
+        Text="2"
+        BackgroundColor="Purple" >
+        <Button.GestureRecognizers>
+          <DragGestureRecognizer
+            DragStarting="DragGestureRecognizer_DragStarting"
+            CanDrag="True" />
+        </Button.GestureRecognizers>
+        </Button>
+      <Button
+        Text="3"
+        BackgroundColor="MediumPurple" />
+      <Button
+        Text="4"
+        BackgroundColor="DarkBlue" />
+    </StackLayout>
+    <StackLayout
+      Orientation="Horizontal"
+      Padding="15,0"
+      BackgroundColor="LightGray"
+      Grid.Row="4">
+      <StackLayout.GestureRecognizers>
+        <DropGestureRecognizer AllowDrop="True"
+                               DragOver="DropGestureRecognizer_DragOver"
+                               DragLeave="DropGestureRecognizer_DragLeave"
+                               Drop="DropGestureRecognizer_Drop"/>
+      </StackLayout.GestureRecognizers>
+
+    </StackLayout>
+  </Grid>
+
+</ContentPage>

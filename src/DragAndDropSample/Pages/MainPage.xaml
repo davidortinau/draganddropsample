@@ -10,10 +10,10 @@
       TargetType="Button">
       <Setter
         Property="WidthRequest"
-        Value="44" />
+        Value="88" />
       <Setter
         Property="HeightRequest"
-        Value="44" />
+        Value="88" />
       <Setter
         Property="HorizontalOptions"
         Value="Start" />
@@ -40,7 +40,7 @@
   </ContentPage.BindingContext>
 
   <Grid
-    RowDefinitions="Auto,*,44,*,44,*">
+    RowDefinitions="Auto,*,88,*,88,*">
     <Frame
       BackgroundColor="#512BD4"
       Padding="24"
@@ -103,11 +103,37 @@
         </Button>
       <Button
         Text="3"
-        BackgroundColor="MediumPurple" />
-      <Button
-        Text="4"
-        BackgroundColor="DarkBlue" />
-    </StackLayout>
+        BackgroundColor="MediumPurple">
+                <Button.GestureRecognizers>
+                    <DragGestureRecognizer
+            DragStarting="DragGestureRecognizer_DragStarting"
+            CanDrag="True" />
+                </Button.GestureRecognizers>
+            </Button>
+        
+            <Button
+                Text="4"
+                BackgroundColor="DarkBlue">
+                <Button.GestureRecognizers>
+                    <DragGestureRecognizer
+                        DragStarting="DragGestureRecognizer_DragStarting"
+                        CanDrag="True" />
+                </Button.GestureRecognizers>
+            </Button>
+
+            <!--<ImageButton Source="Assets/LargeTile.scale-100.png" 
+                   BackgroundColor="Black" 
+                   HeightRequest="88" 
+                   WidthRequest="88" Aspect="AspectFit"
+                   HorizontalOptions="Start"
+                   >
+                <ImageButton.GestureRecognizers>
+                    <DragGestureRecognizer
+            DragStarting="DragGestureRecognizer_DragStarting"
+            CanDrag="True" />
+                </ImageButton.GestureRecognizers>
+            </ImageButton>-->
+        </StackLayout>
     <StackLayout
       Orientation="Horizontal"
       Padding="15,0"
